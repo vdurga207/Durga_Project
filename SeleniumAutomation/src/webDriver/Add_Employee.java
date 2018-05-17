@@ -109,7 +109,7 @@ public class Add_Employee {
 	       /*To get the text from the Personal Information page*/
 	       String e9 = driver.findElement(By.xpath("/html/body/form/div[2]/div[1]/div[2]/div[1]/h2")).getText();
 	        System.out.println(e9);
-	        System.out.println("hi durga");
+	        System.out.println("hi ramakrishna");
 	       
 	}
 
