@@ -1,0 +1,73 @@
+/html/body/div/div[2]/form/div[3]/div[2]
+
+//*[@id="standardView"]/div[3]/div[2]
+//*label[@id='standardView']/div[1]/div[2]
+===========
+
+//div[@class='noresultsbar']
+======================
+
+Add employee page:
+System.setProperty("webdriver.gecko.driver", "D://Selenium_Demp//eclipse//e//DRIVERS//geckodriver.exe");
+	        WebDriver driver = new FirefoxDriver();
+	        driver.manage().window().maximize();
+	        driver.get("http://apps.qaplanet.in/qahrm/login.php"); //to open the browser
+	       
+	        /*LoginValidation*/
+	        driver.findElement(By.name("txtUserName")).sendKeys("qaplanet1");//Input to Login Name
+	        driver.findElement(By.name("txtPassword")).sendKeys("lab1");//Input to Login Name
+	        driver.findElement(By.name("Submit")).click();
+	        
+	        /*Frame selection*/
+	        driver.switchTo().frame("rightMenu");
+	        
+	      WebElement e1 = driver.findElement(By.xpath("//input[@value='Add']"));
+	        e1.click();
+	      System.out.println("Has successfully clicked on Add button");
+	      
+	      /*To get the text from the element */
+	        String headerText = driver.findElement(By.className("mainHeading")).getText();
+	        System.out.println(headerText);
+	        
+	        String e2 = driver.findElement(By.xpath("//*[@id='frmEmp']/div/div[1]/div[2]/label[1]")).getText();
+	        System.out.println(e2);
+	        
+	        String e3 = driver.findElement(By.xpath("//*[@id='txtEmployeeId']")).getText();  //By.xpath("//*[@id='txtEmployeeId']"),id("txtEmployeeId"),By.className("formInputText"),//input[@type='text']
+	        System.out.println(e3);
+
+	        String e4 = driver.findElement(By.xpath("//*[@id='frmEmp']/div/div[1]/div[2]/label[2]")).getText();
+	        System.out.println(e4);
+	         driver.findElement(By.xpath("//*[@id='txtEmpLastName']")).sendKeys("Data");
+	      
+	        String e5 = driver.findElement(By.xpath("//*[@id='frmEmp']/div/div[1]/div[2]/label[3]")).getText();
+	        System.out.println(e5);
+	        driver.findElement(By.xpath("//*[@id='txtEmpFirstName']")).sendKeys("Test");
+	     
+	        String e6 = driver.findElement(By.xpath("//*[@id='frmEmp']/div/div[1]/div[2]/label[4]")).getText();
+	        System.out.println(e6);
+	        driver.findElement(By.xpath("//*[@id='frmEmp']/div/div[1]/div[2]/input[@id='txtEmpMiddleName']")).sendKeys("Driven");
+	      
+===============================
+WebElement UploadImg = driver.findElement(By.xpath("//*[@id='file_upload_button']"));
+  UploadImg.click();
+  WebElement frame =driver.switchTo().activeElement();
+  frame.sendKeys("d:\5.jpg");
+-----------------------
+
+
+The proper way to upload a file on any OS is to
+
+    Find the <input type='file'> element. You need not to worry about different implementations and exact positioning. Just find the element for example by xpath //input[@type='file']
+    sendKeys() or type() (or whatever method writes text into elements in your language) the path to file to that input element.
+
+Sample Java code:
+
+// find the input element
+WebElement elem = driver.findElement(By.xpath("//input[@type='file']"));
+// 'type' the file location to it as it were a usual <input type='text' /> element
+elem.sendKeys("C://path/To/File.jpg");
+
+This works on every OS and browser in WebDriver.
+
+===================================
+https://saucelabs.com/blog/selenium-testing-framework-pt-2-base-classes
