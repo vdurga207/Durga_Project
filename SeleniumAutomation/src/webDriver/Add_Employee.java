@@ -110,6 +110,7 @@ public class Add_Employee {
 	       String e9 = driver.findElement(By.xpath("/html/body/form/div[2]/div[1]/div[2]/div[1]/h2")).getText();
 	        System.out.println(e9);
 	        System.out.println("hi ramakrishna");
+	        System.out.println("hi ramakrishna1231232");
 	       
 	}
 
