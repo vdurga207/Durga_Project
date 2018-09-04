@@ -164,6 +164,7 @@ public class Robot_Ex {
 				{
 					System.out.println("Employee Information page displayed");
 				}
+				System.out.println("Durga");
 			
 			}	
 }
